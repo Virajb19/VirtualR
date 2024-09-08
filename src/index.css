@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url(/Poppins-Regular.ttf);
+}
+
+span , p , div {
+  font-family: poppins;
+}
+
+.flex-center {
+  @apply flex justify-center items-center
+}
+
+#oval {
+   border-radius: 50%;
+}
+
+#login::before {
+  content: '';
+  background: linear-gradient(#9238ff, #d322ff);
+  border-radius: 50%;
+}
