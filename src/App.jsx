@@ -6,6 +6,7 @@ import HeroSection from "./components/HeroSection"
 import FeatureSection from "./components/FeatureSection"
 import WorkFlow from "./components/WorkFlow"
 import Pricing from "./components/Pricing"
+import Testimonials from "./components/Testimonials"
 
 export default function App() {
 
@@ -14,7 +15,7 @@ export default function App() {
     //         el: document.querySelector('[data-scroll-container]'),
     //         smooth: true,
     //       })   
-    //       return () => scroll.destroy()
+    //       return () => scroll.destroy()  FONT-THIN
     // }, [])
 
     return <main className="w-full min-h-screen bg-[#111111]">
@@ -23,5 +24,6 @@ export default function App() {
             <FeatureSection />
             <WorkFlow />
             <Pricing />
+            <Testimonials />
       </main>
 }

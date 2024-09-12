@@ -9,7 +9,7 @@ export default function FeatureSection() {
                     return <div key={i} className='flex flex-wrap justify-start items-end flex-col p-1 gap-1 text-white'>
                          <div className='flex items-center justify-start w-full p-1 gap-7'>
                             <span className='bg-neutral-800 text-orange-600 rounded-full p-2'>{feature.icon}</span>
-                            <span className='text-lg mb:text-sm'>{feature.text}</span>
+                            <span className='text-lg mb:text-base'>{feature.text}</span>
                          </div>
                          <p className='text-[#4A4A4A] w-3/4 text-sm text-left'>{feature.description}</p>
                     </div>
