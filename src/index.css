@@ -19,12 +19,19 @@ span , p , div {
   @apply flex justify-center items-center
 }
 
-#oval {
-   border-radius: 50%;
+.video {
+  @apply lp:w-[35rem] w-[20rem] h-80 tb:h-52 mb:h-48 object-cover rounded-lg border border-orange-500 shadow-lg shadow-orange-700
+}
+/* 
+h1 {
+  font-size: 2.5rem;
 }
 
-#login::before {
-  content: '';
-  background: linear-gradient(#9238ff, #d322ff);
-  border-radius: 50%;
+h2 {
+  font-size: 2rem;
 }
+
+h3 {
+  font-size: 1.75rem;
+} */
+
