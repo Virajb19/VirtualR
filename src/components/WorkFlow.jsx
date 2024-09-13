@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react"
 
 export default function WorkFlow() {
     return <div className="flex flex-col items-center p-1 gap-1 mt-28 mb:mt-14">
-             <span className="text-white text-6xl tb:text-[2.3rem] mb:text-2xl mb:tracking-wide tb:tracking-wide w-full pt-20 mb:pt-10 text-center border-t border-gray-500">Accelerate your <span className="bg-gradient-to-r from-orange-500 to-orange-900 text-transparent bg-clip-text">coding workflow</span></span>
+             <span className="text-white text-6xl tb:text-[2.3rem] mb:text-3xl mb:tracking-wide tb:tracking-wide w-3/4 pt-20 mb:pt-10 text-center border-t border-gray-500">Accelerate your <span className="bg-gradient-to-r from-orange-500 to-orange-900 text-transparent bg-clip-text">coding workflow</span></span>
              <div id="codeImg" className="flex mb:flex-col mb:items-center p-2 gap-1 w-3/4 tb:w-full mb:w-full">
                  <img src={codeImg} className="w-1/2 mb:w-[80%]"/>
                 <div id="checkList" className="flex flex-col justify-around grow p-1 gap-3 mt-5">
