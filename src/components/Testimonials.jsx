@@ -8,17 +8,24 @@ export default function Testimonials() {
 
    const isMobile = useMediaQuery({maxWidth : 640})
    const testimonialRefs = useRef([])
-   const parent = useRef(null)
 
    useGSAP(() => {
     let mm = gsap.matchMedia()
 
          if(testimonialRefs.current && isMobile) {
+
+            const length = testimonialRefs.current.length + 1
+
             gsap.to(testimonialRefs.current, {
-               xPercent: -100,
-               duration: 5,
+               xPercent: -100 * length,
+               duration: 30,
+               delay: 1.2,
                repeat: -1,
+               repeatDelay: 2,
                ease: "none",
+               // modifiers: {
+               //    xPercent: gsap.utils.unitize(x => parseFloat(x) % 700)
+               // }
             })
       }
 
