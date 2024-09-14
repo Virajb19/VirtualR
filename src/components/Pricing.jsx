@@ -26,6 +26,6 @@ function Card({title, price, features}){
                 <span className="tb:text-xs">{feature}</span>
             </div>
            })}
-           <button className="hover:bg-[#5E210F] hover:border-transparent duration-150 p-2 rounded-lg border-2 border-[#6b3f2c] mt-10 tb:mt-7 mb:mt-5">Subscribe</button>
+           <button className="hover:bg-[#5E210F] hover:border-transparent mb:active:bg-[#5E210F] mb:active:border-transparent duration-150 p-2 rounded-lg border-2 border-[#6b3f2c] mt-10 tb:mt-7 mb:mt-5">Subscribe</button>
     </div>
 }

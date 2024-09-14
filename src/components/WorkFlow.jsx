@@ -12,8 +12,8 @@ export default function WorkFlow() {
                     return <div key={i} className="flex gap-1 text-green-400 p-0.5">
                         <CheckCircle2 className="rounded-full bg-neutral-900 p-2" width={50} height={40}/>
                         <div className="flex flex-col gap-2 p-1 mt-0.5">
-                        <span className="text-white mb:text-xs">{item.title}</span>
-                         <p className="text-[#5D5D5D] mb:text-[0.7rem]">{item.description}</p>
+                        <span className="text-white mb:text-base">{item.title}</span>
+                         <p className="text-[#5D5D5D] mb:text-[0.8rem]">{item.description}</p>
                         </div>
                     </div>
                  })}
