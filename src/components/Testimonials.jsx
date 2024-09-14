@@ -21,7 +21,7 @@ export default function Testimonials() {
                duration: 30,
                delay: 1.2,
                repeat: -1,
-               repeatDelay: 2,
+               repeatDelay: 1,
                ease: "none",
                // modifiers: {
                //    xPercent: gsap.utils.unitize(x => parseFloat(x) % 700)

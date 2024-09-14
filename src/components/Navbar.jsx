@@ -2,13 +2,15 @@ import logo from '/logo.png'
 import { navItems } from '../constants'
 import Button from './Button.jsx'
 import { Menu, X} from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import clsx from 'clsx'
 
 export default function Navbar() {
 
    const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
+   const [closing, setClosing] = useState(false)
 
    const drawerRef = useRef(null)
    const menuIconRef = useRef(null)
@@ -17,7 +19,7 @@ export default function Navbar() {
 
    useGSAP(() => {
   
-     if(mobileDrawerOpen){
+     if(mobileDrawerOpen && !closing){
       const tl = gsap.timeline()
 
       tl.from(drawerRef.current, {
@@ -42,12 +44,13 @@ export default function Navbar() {
       })
     }
   }
-    else {
+    else if(closing) {
     
       const tl = gsap.timeline({
         onComplete: () => {
-          setMobileDrawerOpen(false)
-          console.log(mobileDrawerOpen)
+          setMobileDrawerOpen(false) // ASYNCHRONOUS OPERATION
+          setClosing(false)
+          // console.log(mobileDrawerOpen)
         }
       })
       
@@ -60,19 +63,21 @@ export default function Navbar() {
         
         tl.to(drawerRef.current, {
           opacity: 0,
-          y: 50,
+          y: -50,
           duration: 0.5
         })
+
+        // console.log(menuIconRef.current)
 
         tl.from(menuIconRef.current, {
           opacity: 0,
           scale: 0,
-          duration: 0.6,
-          ease: 'elastic.inOut'
-        }, "-=0.7")
+          duration: 0.9,
+          ease: 'steps(5)',
+        })
       
     }
-  }, [mobileDrawerOpen])
+  }, [mobileDrawerOpen,closing])
 
     return <>
          <nav id='navbar' className="sticky top-0 text-white p-1 flex items-center justify-between backdrop-blur-lg border-b border-neutral-700/80">
@@ -92,10 +97,14 @@ export default function Navbar() {
            <Button>Create an account</Button>
            </div>
 
-         <button onClick={() => mobileDrawerOpen ? setClosing(true) : setMobileDrawerOpen(true)} className='hidden mb:inline mr-1'>{mobileDrawerOpen ? <X ref={xIconRef}/> : <Menu ref={menuIconRef}/>}</button>
+         <button onClick={() => mobileDrawerOpen ? setClosing(true) : setMobileDrawerOpen(true)} className='hidden mb:inline mr-1'>
+            <X ref={xIconRef} className={clsx(mobileDrawerOpen ? 'block' : 'hidden')}/>
+            <Menu ref={menuIconRef} className={clsx(mobileDrawerOpen ? 'hidden' : 'block')}/>
+         </button>
       </nav>
+
       {mobileDrawerOpen && (
-         <div ref={drawerRef} className='hidden w-full fixed z-20 mb:block text-white bg-[#161616] space-y-3'>
+         <div ref={drawerRef} className='hidden w-full fixed z-20 mb:block bg-opacity-30 backdrop-blur-md text-white bg-[#161616] space-y-3'>
             <ul className='text-xs flex justify-around p-3'>
               {navItems.map((item,i) => {
                 return <li ref={el => navItemsRef.current[i] = el} key={i} className='border border-transparent hover:border-zinc-300 p-1 rounded-full'>
