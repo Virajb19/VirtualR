@@ -51,6 +51,12 @@ export default function Navbar() {
           setMobileDrawerOpen(false) // ASYNCHRONOUS OPERATION
           setClosing(false)
           // console.log(mobileDrawerOpen)
+          gsap.from(menuIconRef.current, {
+            opacity: 0,
+            scale: 0,
+            duration: 0.9,
+            ease: 'bounce.inOut',
+          })
         }
       })
       
@@ -68,14 +74,6 @@ export default function Navbar() {
         })
 
         // console.log(menuIconRef.current)
-
-        tl.from(menuIconRef.current, {
-          opacity: 0,
-          scale: 0,
-          duration: 0.9,
-          ease: 'steps(5)',
-        })
-      
     }
   }, [mobileDrawerOpen,closing])
 
