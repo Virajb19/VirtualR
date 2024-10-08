@@ -6,6 +6,7 @@ import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import clsx from 'clsx'
+import { motion, useScroll, useSpring } from 'framer-motion'
 
 export default function Navbar() {
 
@@ -16,6 +17,13 @@ export default function Navbar() {
    const menuIconRef = useRef(null)
    const xIconRef = useRef(null)
    const navItemsRef = useRef([])
+
+   const { scrollYProgress} = useScroll()
+   const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+   })
 
    useGSAP(() => {
   
@@ -100,6 +108,10 @@ export default function Navbar() {
             <Menu ref={menuIconRef} className={clsx(mobileDrawerOpen ? 'hidden' : 'block')}/>
          </button>
       </nav>
+
+      <div id='scroll-meter' className='sticky z-50 top-14 mb:top-[2.8rem] tb:top-12 h-1 bg-[#111111'>
+          <motion.div className='h-full bg-orange-700' style={{scaleX, transformOrigin: 'left'}} />
+      </div>
 
       {mobileDrawerOpen && (
          <div ref={drawerRef} className='hidden w-full fixed z-20 mb:block bg-opacity-30 backdrop-blur-md text-white bg-[#161616] space-y-3'>
