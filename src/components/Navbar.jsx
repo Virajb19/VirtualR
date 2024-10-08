@@ -109,7 +109,7 @@ export default function Navbar() {
          </button>
       </nav>
 
-      <div id='scroll-meter' className='sticky z-50 top-14 mb:top-[2.8rem] tb:top-12 h-1 bg-[#111111'>
+      <div id='scroll-meter' className='fixed w-full z-50 top-14 mb:top-[2.8rem] tb:top-12 h-1 bg-[#111111'>
           <motion.div className='h-full bg-orange-700' style={{scaleX, transformOrigin: 'left'}} />
       </div>
 
